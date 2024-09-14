@@ -4,6 +4,63 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>北京海淀地址生成器</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            text-align: center
+        }
+        .container {
+            border: 2px solid #007BFF; /* 蓝色边框 */
+            border-radius: 10px;
+            padding: 20px;
+            display: inline-block;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #87CEEB; /* 白色容器背景 */
+        }
+        #result {
+            white-space: pre-wrap; /* 保持换行 */
+            margin-top: 20px;
+            text-align: left; /* 靠左显示 */
+        }
+        .button-container {
+            margin-top: 20px;
+        }
+        button {
+            background-color: blue;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: darkblue;
+        }
+        .example {
+            margin-top: 20px;
+            text-align: left;
+            display: inline-block;
+        }
+        .example p {
+            font-size: 10px; /* 示例字体小一点 */
+        }
+        label {
+            text-align: left; /* 靠左显示标签 */
+            margin-bottom: 10px; /* 标签与输入框之间的间距 */
+        }
+        .input-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+        }
+        input {
+            margin-left: 10px; /* 标签与输入框之间的间距 */
+        }
+    </style>
     <script>
         const first_name = [
             "赵", "钱", "孙", "李", "周", "吴", "郑", "王", "冯", "陈",
@@ -78,20 +135,34 @@
         }
 
         function copyInfo() {
-            navigator.clipboard.writeText(generatedInfo).then(() => {
-                alert("信息已复制到剪贴板！");
-            }, (err) => {
-                alert("复制失败！请重试。");
-            });
+            navigator.clipboard.writeText(generatedInfo);
         }
     </script>
 </head>
 <body>
-    <h1>北京海淀地址生成器</h1>
-    <label for="phone">请输入手机号后四位：</label>
-    <input type="text" id="phone" placeholder="请输入手机号后四位" required maxlength="4">
-    <button onclick="generateInfo()">生成信息</button>
-    <button onclick="copyInfo()">复制信息</button>
-    <pre id="result"></pre>
+    <div class="container">
+        <h1>北京海淀地址生成器</h1>
+        <div class="example">
+            <h3>地址示例文本</h3>
+            <p>地址生成原则：</p>
+            <p>收货人：随意填写</p>
+            <p>电话号码：（填写下单的电话号码，记得关闭隐私保护，方便结算）</p>
+            <p>收货地址：北京市海淀区清河街道朱房路朱房村**小区**栋**单元***屋</p>
+            <p>示例：</p>
+            <p>收货人：张三</p>
+            <p>收件电话：18844558888</p>
+            <p>收货地址：北京市海淀区清河街道朱房路朱房村金马小区12栋25单元705屋</p>
+            <br><br> <!-- 添加空行 -->
+        </div>
+        <div class="input-container">
+            <label for="phone">手机尾号：</label>
+            <input type="text" id="phone" placeholder="请输入手机尾号" required maxlength="4">
+        </div>
+        <div class="button-container">
+            <button onclick="generateInfo()">生成信息</button>
+            <button onclick="copyInfo()">复制信息</button>
+        </div>
+        <pre id="result"></pre>
+    </div>
 </body>
 </html>
