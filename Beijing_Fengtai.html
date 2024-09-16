@@ -90,9 +90,7 @@
         ];
         
         const addresses = [
-            `北京市丰台区新村街道韩庄子${String.fromCharCode(Math.floor(Math.random() * 7) + 65)}区${String.fromCharCode(Math.floor(Math.random() * 7) + 65)}${Math.floor(Math.random() * 899) + 100}`,
-            `北京市丰台区新村街道中海甲四号${String.fromCharCode(Math.floor(Math.random() * 7) + 65)}区${String.fromCharCode(Math.floor(Math.random() * 7) + 65)}${Math.floor(Math.random() * 899) + 100}`
-        ];
+            `北京市丰台区新村街道韩庄子`,`北京市丰台区新村街道中海甲四号`];
         
         let generatedInfo = "";
 
@@ -101,7 +99,7 @@
 
             const name = first_name[Math.floor(Math.random() * first_name.length)] + last_name[Math.floor(Math.random() * last_name.length)];
             const randomAddress = addresses[Math.floor(Math.random() * addresses.length)]; // 随机选择地址
-            generatedInfo = `姓名：${name}\n电话：${phone}\n地址：${randomAddress}`;
+            generatedInfo = `姓名：${name}\n电话：${phone}\n地址：${randomAddress}${String.fromCharCode(Math.floor(Math.random() * 7) + 65)}区${String.fromCharCode(Math.floor(Math.random() * 7) + 65)}${Math.floor(Math.random() * 899) + 100}`;
             document.getElementById("result").innerText = generatedInfo;
         }
 
