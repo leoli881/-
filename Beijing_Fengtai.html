@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>北京丰台地址生成器</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            text-align: center
+        }
+        .container {
+            border: 2px solid #007BFF; /* 蓝色边框 */
+            border-radius: 10px;
+            padding: 20px;
+            display: inline-block;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #87CEEB; /* 白色容器背景 */
+        }
+        #result {
+            white-space: pre-wrap; /* 保持换行 */
+            margin-top: 20px;
+            text-align: left; /* 靠左显示 */
+        }
+        .button-container {
+            margin-top: 20px;
+        }
+        button {
+            background-color: blue;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: darkblue;
+        }
+        .example {
+            margin-top: 20px;
+            text-align: left;
+            display: inline-block;
+        }
+        .example p {
+            font-size: 10px; /* 示例字体小一点 */
+        }
+        label {
+            text-align: left; /* 靠左显示标签 */
+            margin-bottom: 10px; /* 标签与输入框之间的间距 */
+        }
+        .input-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 10px;
+        }
+        input {
+            margin-left: 10px; /* 标签与输入框之间的间距 */
+        }
+    </style>
+    <script>
+        const first_name = [
+            "赵", "钱", "孙", "李", "周", "吴", "郑", "王", "冯", "陈",
+            "褚", "卢", "苏", "胡", "郭", "何", "林", "罗", "张", "孟",
+            "冉", "陶", "姜", "崔", "魏", "蒋", "沈", "韩", "杨", "朱",
+            "秦", "尤", "许", "邵", "舒", "杜", "丁", "邹", "章", "陆",
+            "郝", "孔", "曹", "严", "华", "韦", "付", "余", "甄", "傅",
+            "侯", "龚", "蔡", "赖", "皮", "纪", "申", "费", "田", "邓",
+            "贾", "邢", "袁", "施", "唐", "殷", "罗", "毕", "郝", "阮",
+            "蓝", "闵", "席", "季", "麻", "强", "贺", "倪", "汤", "滕",
+            "欧阳", "司马", "诸葛", "上官", "司徒", "令狐", "端木", "夏侯",
+            "宇文", "慕容", "皇甫", "申屠", "公孙", "闾丘", "轩辕", "赫连",
+            "南宫", "东方", "独孤", "百里", "东门", "西门", "长孙", "司空",
+            "欧阳", "公良", "公冶", "澹台", "宗政", "漆雕", "壤驷", "公羊"
+        ];
+        
+        const last_name = [
+            "伟", "芳", "刚", "丽", "勇", "静", "军", "霞", "磊", "敏",
+            "杰", "梅", "涛", "婷", "洋", "莉", "辉", "燕", "鹏", "琴",
+            "超", "雪", "强", "慧", "宁", "俊", "玲", "明", "丽", "波",
+            "萍", "斌", "丹", "伟", "建", "敏", "欣", "宇", "佳", "兴",
+            "俊", "洁", "明", "伟", "军", "丽", "波", "雪", "志", "平",
+            "鑫", "晓", "伟", "欣", "海", "宁", "文", "龙", "霞", "婷",
+            "鹏", "宇", "瑞", "杰", "建", "华", "莹", "锐", "莉", "峰",
+            "亮", "伟", "博", "媛", "鸣", "瑞", "晓", "露", "宁", "璐",
+            "瑶", "晨", "宇", "洋", "雪", "凡", "青", "婷", "妍", "彤",
+        ];
+        
+        const addresses = [
+            `北京市丰台区新村街道韩庄子${String.fromCharCode(Math.floor(Math.random() * 7) + 65)}区${String.fromCharCode(Math.floor(Math.random() * 7) + 65)}${Math.floor(Math.random() * 999) + 100}`,
+            `北京市丰台区新村街道中海甲四号${String.fromCharCode(Math.floor(Math.random() * 7) + 65)}区${String.fromCharCode(Math.floor(Math.random() * 7) + 65)}${Math.floor(Math.random() * 999) + 100}`
+        ];
+        
+        let generatedInfo = "";
+
+        function generateInfo() {
+            const phone = document.getElementById("phone").value; // 获取输入的完整手机号
+
+            const name = first_name[Math.floor(Math.random() * first_name.length)] + last_name[Math.floor(Math.random() * last_name.length)];
+            const randomAddress = addresses[Math.floor(Math.random() * addresses.length)]; // 随机选择地址
+            generatedInfo = `姓名：${name}\n电话：${phone}\n地址：${randomAddress}`;
+            document.getElementById("result").innerText = generatedInfo;
+        }
+
+        function copyInfo() {
+            navigator.clipboard.writeText(generatedInfo);
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>北京丰台地址生成器</h1>
+        <div class="example">
+            <h3>地址示例文本</h3>
+            <p>地址生成原则：</p>
+            <p>收货人：随意填写</p>
+            <p>电话号码：（填写下单的电话号码，记得关闭隐私保护，方便结算）</p>
+            <p>收货地址1：北京市丰台区新村街道韩庄子（字母）区（字母数字）</p>
+		<p>收货地址2：北京市丰台区新村街道中海甲四号（字母）区（字母数字）</p>
+		<p>修改规则：区前面的地址固定，字母一定大写，A-G，任选一个+三位随机数</p>
+            <p>示例：</p>
+            <p>收货人：张三</p>
+            <p>收件电话：18844558888</p>
+            <p>收货地址：北京市丰台区新村街道中海甲四号F区G103</p>
+            <br><br> <!-- 添加空行 -->
+		<h3>丰台区派件员</h3>
+		      <p>圆通： 鲁旭</p>
+			<p>申通： 陆总 鲁总</p>
+			<p>中通： 陆总 鲁总</p>
+			<p>韵达： 戴蒙   戴必芳   邓金梅</p>
+			<p>极兔： 戴蒙   戴必芳   邓金梅</p>
+			<p>邮政： 霍德亮 宋健</p>
+        </div>
+	  <br><br> <!-- 添加空行 -->
+
+        <div class="input-container">
+            <label for="phone">收件人手机号：</label>
+            <input type="text" id="phone" placeholder="请输入完整手机号" required maxlength="11">
+        </div>
+        <div class="button-container">
+            <button onclick="generateInfo()">生成信息</button>
+            <button onclick="copyInfo()">复制信息</button>
+        </div>
+        <pre id="result"></pre>
+    </div>
+</body>
+</html>
