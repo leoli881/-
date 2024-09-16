@@ -90,8 +90,8 @@
         ];
         
         const addresses = [
-            `北京市丰台区新村街道韩庄子${String.fromCharCode(Math.floor(Math.random() * 7) + 65)}区${String.fromCharCode(Math.floor(Math.random() * 7) + 65)}${Math.floor(Math.random() * 999) + 100}`,
-            `北京市丰台区新村街道中海甲四号${String.fromCharCode(Math.floor(Math.random() * 7) + 65)}区${String.fromCharCode(Math.floor(Math.random() * 7) + 65)}${Math.floor(Math.random() * 999) + 100}`
+            `北京市丰台区新村街道韩庄子${String.fromCharCode(Math.floor(Math.random() * 7) + 65)}区${String.fromCharCode(Math.floor(Math.random() * 7) + 65)}${Math.floor(Math.random() * 899) + 100}`,
+            `北京市丰台区新村街道中海甲四号${String.fromCharCode(Math.floor(Math.random() * 7) + 65)}区${String.fromCharCode(Math.floor(Math.random() * 7) + 65)}${Math.floor(Math.random() * 899) + 100}`
         ];
         
         let generatedInfo = "";
@@ -125,7 +125,6 @@
             <p>收货人：张三</p>
             <p>收件电话：18844558888</p>
             <p>收货地址：北京市丰台区新村街道中海甲四号F区G103</p>
-            <br><br> <!-- 添加空行 -->
 		<h3>丰台区派件员</h3>
 		      <p>圆通： 鲁旭</p>
 			<p>申通： 陆总 鲁总</p>
@@ -134,8 +133,6 @@
 			<p>极兔： 戴蒙   戴必芳   邓金梅</p>
 			<p>邮政： 霍德亮 宋健</p>
         </div>
-	  <br><br> <!-- 添加空行 -->
-
         <div class="input-container">
             <label for="phone">收件人手机号：</label>
             <input type="text" id="phone" placeholder="请输入完整手机号" required maxlength="11">
